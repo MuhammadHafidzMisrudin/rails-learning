@@ -38,6 +38,19 @@ class Square
        return "\nSide length: #{@side_length}\nPerimeter: #{perimeter}\nArea: #{area}"
     end
 
+    def draw
+        # draws top
+        puts "*" * @side_length
+
+        # use times iterator.
+        # draws side walls and space in between.
+        (@side_length - 2).times do
+            print "*" + (" " * (@side_length - 2)) + "*\n"
+        end
+
+        # draws bottom.
+        puts "*" * @side_length
+    end
 end
 
 # instantiates Square class.
@@ -47,9 +60,11 @@ puts mySquareObject.side_length
 puts mySquareObject.new_var
 
 # set a new value.
-mySquareObject.side_length = 50
+mySquareObject.side_length = 10
 puts "New value of side length is #{mySquareObject.side_length}"
 puts "The perimeter is #{mySquareObject.perimeter}"
 puts "The area is #{mySquareObject.area}"
 
 puts mySquareObject
+print "\n"
+puts mySquareObject.draw
