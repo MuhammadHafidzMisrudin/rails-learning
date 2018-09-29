@@ -60,7 +60,7 @@ puts mySquareObject.side_length
 puts mySquareObject.new_var
 
 # set a new value.
-mySquareObject.side_length = 10
+mySquareObject.side_length = 40
 puts "New value of side length is #{mySquareObject.side_length}"
 puts "The perimeter is #{mySquareObject.perimeter}"
 puts "The area is #{mySquareObject.area}"
