@@ -1,6 +1,19 @@
 <h1>Stocker Homepage</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<br/>
+<br/><br/>
 
-<% stock = StockQuote::Stock.quote("goog") %>
+<%= form_tag root_path, :method => 'POST' do %>
+  <div class="form-group">
+      <%= label_tag "Search for:" %>
+      <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50, class: 'form-control' %>
+      <%= submit_tag 'Submit'%>
+  </div>
+<% end %>
+
+<br/><br/>
+
+<% stock = StockQuote::Stock.quote("fb") %>
 <%= stock.inspect %>
+
+<br/>
+<br/>
+<%= stock.company_name %>
