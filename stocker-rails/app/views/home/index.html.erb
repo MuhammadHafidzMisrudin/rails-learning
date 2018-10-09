@@ -4,8 +4,8 @@
 <%= form_tag root_path, :method => 'POST' do %>
   <div class="form-group">
       <%= label_tag "Search for:" %>
-      <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50, class: 'form-control' %>
-      <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+      <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50 %>
+      <%= submit_tag 'Submit' %>
   </div>
 <% end %>
 
