@@ -11,9 +11,10 @@
 
 <br/><br/>
 
-<% stock = StockQuote::Stock.quote("fb") %>
-<%= stock.inspect %>
-
-<br/>
-<br/>
-<%= stock.company_name %>
+<% if @stock %>
+  <%= @stock.company_name %>
+  <br/><br/>
+  <%= @stock.inspect %>
+<% elsif @nothing %>
+  <%= @nothing %>
+<% end %>
