@@ -10,7 +10,7 @@ class HomeController < ApplicationController
         # adds a block of error handling to check valid information.
         begin
           @stock = StockQuote::Stock.quote(params[:id])
-        rescue Exception => e
+        rescue StandardError => e
           puts e.message
           puts e.backtrace.inspect
           @error = "That Stock Symbol does not exit...please try again."
