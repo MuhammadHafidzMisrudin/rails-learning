@@ -1,4 +1,4 @@
-<h1>Stocker Homepage</h1>
+<strong><h1>Stocker Homepage</h1></strong>
 <br/><br/>
 
 <%= form_tag root_path, :method => 'POST' do %>
@@ -14,7 +14,6 @@
 <% if @stock %>
   <%#= @stock.inspect %>
   <br/><br/>
-
   <strong>Company Name: </strong><%= @stock.company_name %> - <%= @stock.symbol %><br/>
   <strong>Primary Exchange: </strong><%= @stock.primary_exchange %><br/>
   <strong>Calculation Price: </strong><%= @stock.calculation_price %><br/>
@@ -24,7 +23,6 @@
   <strong>Day's Range: </strong><%= @stock.low %> - <%= @stock.high %><br/>
   <strong>Year High: </strong><%= @stock.week52_high %><br/>
   <strong>Year Low: </strong><%= @stock.week52_low %><br/>
-
 <% elsif @nothing %>
   <%= @nothing %>
 <% end %>
