@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy] # must be a correct user of a stock in order to update, edit and delete.
+  before_action :authenticate_user! # must require authetication of user for CRUD operation.
 
   # GET /stocks
   # GET /stocks.json
@@ -74,9 +74,10 @@ class StocksController < ApplicationController
       params.require(:stock).permit(:ticker, :user_id)
     end
 
+    # Method to check the correct user of a stock.
     def correct_user
       # creates an instance to assign to current user and look up stocks table and find the param id, user id.
       @ticker = current_user.stocks.find_by(id: params[:id])
-      redirect_to stocks_path, notice: "Not Authorised to Edit This Stock" if @stock.nil?
+      redirect_to stocks_path, notice: "Not Authorised to Edit This Stock" if @ticker.nil? # if current user is incorrect, throws up error.
     end
 end
