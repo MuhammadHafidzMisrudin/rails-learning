@@ -7,6 +7,7 @@
 <% rescue StandardError %>
   <!-- If the ticker of current stock is invalid, it will output this -->
   <% @strError = "Error Invalid Ticker" %>
+  <%= "Error Invalid Ticker" %>
   <%= raw @strError %>
 <% end %>
 
@@ -16,16 +17,48 @@
 <!--  <%= @stock.ticker %>-->
 <!--</p>-->
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong><%= @stock_quote.company_name %> - <%= @stock_quote.symbol %></strong></h3>
+    <h5 class="panel-title"><%= @stock_quote.primary_exchange %></h5>
+  </div>
+  <div class="panel-body">
 
-<strong>Company Name: </strong><%= @stock_quote.company_name %> - <%= @stock_quote.symbol %><br/>
-<strong>Primary Exchange: </strong><%= @stock_quote.primary_exchange %><br/>
-<strong>Calculation Price: </strong><%= @stock_quote.calculation_price %><br/>
-<strong>PE Ratio: </strong><%= @stock_quote.pe_ratio %><br/>
-<strong>Market Cap: </strong><%= @stock_quote.market_cap %><br/>
-<strong>Stock Open: </strong><%= @stock_quote.open %><br/>
-<strong>Day's Range: </strong><%= @stock_quote.low %> - <%= @stock_quote.high %><br/>
-<strong>Year High: </strong><%= @stock_quote.week52_high %><br/>
-<strong>Year Low: </strong><%= @stock_quote.week52_low %><br/>
+    <div class="col-md-4">
+      <h1>Latest Price: $<%= @stock_quote.latest_price %></h1><br/>
+      <strong>Calculation Price: </strong><%= @stock_quote.calculation_price %><br/>
+      <strong>PE Ratio: </strong><%= @stock_quote.pe_ratio %><br/>
+      <strong>Market Cap: </strong><%= @stock_quote.market_cap %><br/>
+      <strong>Stock Open: </strong><%= @stock_quote.open %><br/>
+      <strong>Day's Range: </strong><%= @stock_quote.low %> - <%= @stock_quote.high %><br/>
+      <strong>Year High: </strong><%= @stock_quote.week52_high %><br/>
+      <strong>Year Low: </strong><%= @stock_quote.week52_low %><br/>
+    </div>
+
+    <div class="col-md-8"><br/>
+      <h3 class="panel-title"><strong><%= "The attributes of StockQuote API" %></strong></h3><br/>
+      <%= @stock_quote.inspect %>
+    </div>
+
+  </div>
+  <div class="panel-footer">
+    <%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-primary" %>
+    <%= link_to 'Destroy', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <%= link_to 'Back', stocks_path, class: "btn btn-default" %>
+  </div>
+</div>
+
+
+<!--<strong>Company Name: </strong><%= @stock_quote.company_name %> - <%= @stock_quote.symbol %><br/>-->
+<!--<strong>Primary Exchange: </strong><%= @stock_quote.primary_exchange %><br/>-->
+<!--<strong>Latest Price: </strong><%= @stock_quote.latest_price %> - <%= @stock_quote.symbol %><br/>-->
+<!--<strong>Calculation Price: </strong><%= @stock_quote.calculation_price %><br/>-->
+<!--<strong>PE Ratio: </strong><%= @stock_quote.pe_ratio %><br/>-->
+<!--<strong>Market Cap: </strong><%= @stock_quote.market_cap %><br/>-->
+<!--<strong>Stock Open: </strong><%= @stock_quote.open %><br/>-->
+<!--<strong>Day's Range: </strong><%= @stock_quote.low %> - <%= @stock_quote.high %><br/>-->
+<!--<strong>Year High: </strong><%= @stock_quote.week52_high %><br/>-->
+<!--<strong>Year Low: </strong><%= @stock_quote.week52_low %><br/>-->
 
 
 <!--<p>-->
@@ -35,9 +68,9 @@
 
 <br/><br/>
 
-<%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default" %>
-<%= link_to 'Destroy', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-<%= link_to 'Back', stocks_path, class: "btn btn-default" %>
+<!--<%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default" %>-->
+<!--<%= link_to 'Destroy', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>-->
+<!--<%= link_to 'Back', stocks_path, class: "btn btn-default" %>-->
 
 <!--<%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default" %> |-->
 <!--<%= link_to 'Back', stocks_path, class: "btn btn-default" %>-->
