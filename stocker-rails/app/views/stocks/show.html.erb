@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <% begin %>
   <!-- Create instance and store the information ticker of current stock using StockQuote  -->
   <% @stock_quote = StockQuote::Stock.quote(@stock.ticker) %>
@@ -10,7 +9,6 @@
   <%= "Error Invalid Ticker" %>
   <%= raw @strError %>
 <% end %>
-
 
 <!--<p>-->
 <!--  <strong>Ticker:</strong>-->
@@ -60,7 +58,6 @@
 <!--<strong>Day's Range: </strong><%= @stock_quote.low %> - <%= @stock_quote.high %><br/>-->
 <!--<strong>Year High: </strong><%= @stock_quote.week52_high %><br/>-->
 <!--<strong>Year Low: </strong><%= @stock_quote.week52_low %><br/>-->
-
 
 <!--<p>-->
 <!--  <strong>User:</strong>-->
