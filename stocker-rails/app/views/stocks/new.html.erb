@@ -1,5 +1,15 @@
-<h1>New Stock</h1>
+<!-- <h1>New Stock</h1> -->
 
-<%= render 'form', stock: @stock %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Stock</h3>
+  </div>
+  <div class="panel-body">
+    <%= render 'form', stock: @stock %>
+  </div>
+  <div class="panel-footer"><%= link_to 'Back', stocks_path, class: "btn btn-default" %></div>
+</div>
 
-<%= link_to 'Back', stocks_path %>
+<%#= render 'form', stock: @stock %>
+
+<%#= link_to 'Back', stocks_path %>
